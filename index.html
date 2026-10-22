@@ -9,7 +9,7 @@
 :root{
   --brown:#473027;
   --paper:#f2e4c9;
-  --cream:#fff9ed;
+  --light:#fff9ed;
   --red:#a72f27;
   --green:#356c46;
 }
@@ -22,123 +22,128 @@ body{
 }
 header{
   background:#261a15;
-  color:#f2e4c9;
+  color:var(--paper);
   padding:18px 25px;
   display:flex;
   justify-content:space-between;
+  gap:12px;
   align-items:center;
-  gap:15px;
 }
-h1{margin:0;font-size:25px;letter-spacing:2px}
-h2{margin:12px 0}
-button,select,input{
+h1{font-size:24px;margin:0}
+h2{margin:8px 0 14px}
+button,input,select{
   font:inherit;
+  padding:8px;
   border:1px solid #9c815f;
   border-radius:4px;
-  padding:8px;
-  background:var(--cream);
+  background:var(--light);
   color:#261a15;
 }
 button{cursor:pointer}
-button:hover{filter:brightness(.93)}
-button.primary{background:var(--brown);color:white}
-button.good{background:var(--green);color:white}
-button.danger{background:var(--red);color:white}
-button:disabled{opacity:.55;cursor:not-allowed}
+button:disabled{opacity:.5;cursor:wait}
+.primary{background:var(--brown);color:white}
+.good{background:var(--green);color:white}
+.danger{background:var(--red);color:white}
 nav{
+  background:var(--brown);
+  padding:10px;
   display:flex;
   gap:8px;
-  background:var(--brown);
-  padding:10px 20px;
   flex-wrap:wrap;
 }
 nav button{background:#e6d1a7}
-nav button.active{background:#b58b49;font-weight:bold}
-main{padding:22px;max-width:1700px;margin:auto}
+nav button.active{
+  background:#b58b49;
+  font-weight:bold;
+}
+main{
+  padding:20px;
+  max-width:1600px;
+  margin:auto;
+}
 .panel{
   background:var(--paper);
   border:2px solid #92724d;
-  box-shadow:0 3px 8px #604c3822;
   padding:16px;
   margin-bottom:16px;
 }
 .toolbar{
   display:flex;
-  align-items:center;
-  gap:10px;
+  gap:9px;
   flex-wrap:wrap;
+  align-items:center;
   margin:12px 0;
 }
 .scroll{overflow:auto;max-height:72vh}
-table{border-collapse:collapse;width:100%;background:var(--cream)}
+table{
+  border-collapse:collapse;
+  width:100%;
+  background:var(--light);
+}
+td,th{
+  border:1px solid #b8a07a;
+  padding:8px;
+  text-align:left;
+  vertical-align:top;
+}
 th{
+  background:var(--brown);
+  color:white;
   position:sticky;
   top:0;
-  background:var(--brown);
-  color:#fff2d8;
-  text-align:left;
-  z-index:1;
 }
-td,th{border:1px solid #b8a07a;padding:9px;vertical-align:top}
 tr:nth-child(even) td{background:#f0e2c9}
 .muted{color:#78634f}
 .small{font-size:12px}
 .red{background:#f4c8bf!important;color:#761b18}
 .green{background:#d9ead7!important;color:#225734}
-.chip{
-  display:inline-block;
-  border-radius:3px;
-  padding:5px;
-  margin:2px;
-  border:1px solid #b9a27c;
-}
-.cell{min-width:165px}
-.cell select{width:100%;max-width:180px}
 .issue{
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-  padding:8px;
+  padding:7px;
   margin-bottom:5px;
-  background:#e8b6ac;
   border-left:4px solid var(--red);
+  background:#e8b6ac;
+  min-width:150px;
 }
 .issue.returned{
   background:#d9ead7;
-  border-left-color:var(--green);
+  border-color:var(--green);
 }
-.issue.lost{
-  background:#f4c8bf;
-  border-left-color:var(--red);
+.issue.lost{background:#f4c8bf}
+.issue button{
+  font-size:12px;
+  padding:5px;
+  margin:3px 2px 0 0;
 }
-.issue button{padding:5px;font-size:12px}
+.cell{min-width:160px}
+.cell select{width:100%}
 .actions{display:flex;gap:5px;flex-wrap:wrap}
-.summary{display:flex;gap:10px;flex-wrap:wrap}
-.stat{
-  background:#f9edda;
-  border:1px solid #b49a73;
-  padding:12px;
-  min-width:140px;
-}
+.hidden{display:none!important}
+#login{max-width:520px;margin:70px auto}
 #message{
   position:fixed;
   bottom:15px;
   right:15px;
-  max-width:440px;
   background:#382720;
   color:white;
-  padding:14px;
+  padding:13px;
   display:none;
+  max-width:500px;
   z-index:10;
   white-space:pre-wrap;
 }
-#login{max-width:500px;margin:70px auto}
-.hidden{display:none!important}
-input[type=date]{min-width:150px}
+.stat{
+  display:inline-block;
+  background:#f9edda;
+  border:1px solid #b49a73;
+  padding:12px;
+  margin:5px;
+}
+.stat strong{display:block;font-size:22px}
 .search{width:min(360px,100%)}
 @media(max-width:800px){
   main{padding:8px}
-  header{flex-direction:column;align-items:flex-start}
+  header{display:block}
+  h1{font-size:19px}
 }
 </style>
 </head>
@@ -146,23 +151,21 @@ input[type=date]{min-width:150px}
 
 <header>
   <h1>✦ FRONTIER QUARTERMASTER</h1>
-  <div id="identity">საწყობის აღრიცხვა</div>
+  <span id="identity">საწყობის აღრიცხვა</span>
 </header>
 
 <div id="login" class="panel">
   <h2>ავტორიზაცია</h2>
-  <p>მხოლოდ სამი დაშვებული მომხმარებლისთვის.</p>
-  <form id="loginForm">
-    <div class="toolbar">
-      <select id="username" required>
-        <option value="">აირჩიე მომხმარებელი</option>
-        <option value="Billy Westwood">Billy Westwood</option>
-        <option value="tyler Westwood">tyler Westwood</option>
-        <option value="Satoshi Nikamoto">Satoshi Nikamoto</option>
-      </select>
-      <input id="password" type="password" placeholder="პაროლი" required>
-      <button class="primary">შესვლა</button>
-    </div>
+  <form id="loginForm" class="toolbar">
+    <select id="username" required>
+      <option value="">აირჩიე მომხმარებელი</option>
+      <option>Billy Westwood</option>
+      <option>tyler Westwood</option>
+      <option>Satoshi Nikamoto</option>
+    </select>
+    <input id="password" type="password"
+           placeholder="პაროლი" required>
+    <button class="primary">შესვლა</button>
   </form>
 </div>
 
@@ -174,7 +177,7 @@ input[type=date]{min-width:150px}
     <button data-page="summary">დღის შეჯამება</button>
     <button id="logout">გასვლა</button>
   </nav>
-  <main><div id="content"></div></main>
+  <main id="content"></main>
 </div>
 
 <div id="message"></div>
@@ -184,285 +187,426 @@ input[type=date]{min-width:150px}
 import {createClient} from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
 const conf=window.APP_CONFIG||{};
-const valid=conf.SUPABASE_URL?.startsWith('https://') &&
-  conf.SUPABASE_ANON_KEY &&
-  !conf.SUPABASE_ANON_KEY.startsWith('PASTE_');
+const sb=conf.SUPABASE_URL&&conf.SUPABASE_ANON_KEY
+  ?createClient(conf.SUPABASE_URL,conf.SUPABASE_ANON_KEY)
+  :null;
 
-const sb=valid?createClient(conf.SUPABASE_URL,conf.SUPABASE_ANON_KEY):null;
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({
-  '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  '&':'&amp;',
+  '<':'&lt;',
+  '>':'&gt;',
+  '"':'&quot;',
+  "'":'&#39;'
 }[c]));
 
 const day=()=>new Intl.DateTimeFormat('en-CA',{
   timeZone:'Europe/Paris',
-  year:'numeric',month:'2-digit',day:'2-digit'
+  year:'numeric',
+  month:'2-digit',
+  day:'2-digit'
 }).format(new Date());
 
 const clock=t=>t?new Date(t).toLocaleString('ka-GE',{
   timeZone:'Europe/Paris',
-  year:'numeric',month:'2-digit',day:'2-digit',
-  hour:'2-digit',minute:'2-digit'
+  day:'2-digit',
+  month:'2-digit',
+  year:'numeric',
+  hour:'2-digit',
+  minute:'2-digit'
 }):'—';
-
-const displayDate=d=>d?d.split('-').reverse().join('.'):'';
 
 let selectedDay=day();
 let page='stock';
-let items=[],soldiers=[],issues=[],events=[];
-let me='',busy=false,loading=false,search='';
+let items=[],soldiers=[],issues=[];
+let busy=false,loading=false;
+let soldierSearch='',stockSearch='',showArchived=false;
 
-function msg(t){
+const itemName=id=>items.find(i=>i.id===id)?.name||'—';
+const soldierName=id=>soldiers.find(s=>s.id===id)?.name||'—';
+
+const used=id=>issues.filter(x=>
+  x.item_id===id&&['out','lost'].includes(x.status)
+).length;
+
+const available=i=>
+  Number(i.initial_qty||0)+Number(i.added_qty||0)-used(i.id);
+
+function notice(t){
   $('#message').textContent=t;
   $('#message').style.display='block';
-  clearTimeout(msg.timer);
-  msg.timer=setTimeout(()=>$('#message').style.display='none',6000);
+  clearTimeout(notice.timer);
+  notice.timer=setTimeout(()=>{
+    $('#message').style.display='none';
+  },5500);
 }
-function err(e){
-  msg('შეცდომა: '+(e?.message||String(e)));
-}
+
 function setBusy(v){
   busy=v;
   document.querySelectorAll('#content button,#content select')
     .forEach(x=>x.disabled=v);
 }
+
 async function reload(){
   if(loading)return;
   loading=true;
   try{
-    const [a,b,c,d]=await Promise.all([
+    const r=await Promise.all([
       sb.from('items').select('*').order('name'),
       sb.from('soldiers').select('*').order('name'),
-      sb.from('issues').select('*').order('issued_at'),
-      sb.from('stock_events').select('*').order('created_at',{ascending:false})
+      sb.from('issues').select('*').order('issued_at')
     ]);
-    for(const x of [a,b,c,d])if(x.error)throw x.error;
-    items=a.data||[];
-    soldiers=b.data||[];
-    issues=c.data||[];
-    events=d.data||[];
+    for(const x of r){
+      if(x.error)throw x.error;
+    }
+    [items,soldiers,issues]=r.map(x=>x.data||[]);
     render();
   }finally{
     loading=false;
   }
 }
-async function action(kind,args={}){
+
+async function act(kind,args={},edit=false){
   if(busy)return;
   setBusy(true);
   try{
-    const {error}=await sb.rpc('perform_action',{
-      p_action:kind,
-      p_item:args.item??null,
-      p_soldier:args.soldier??null,
-      p_issue:args.issue??null,
-      p_qty:args.qty??null,
-      p_name:args.name??null,
-      p_day:args.day??null
-    });
-    if(error)throw error;
+    const r=edit
+      ?await sb.rpc('warehouse_edit',{
+        p_action:kind,
+        p_item:args.item||null,
+        p_issue:args.issue||null,
+        p_qty:args.qty??null
+      })
+      :await sb.rpc('perform_action',{
+        p_action:kind,
+        p_item:args.item||null,
+        p_soldier:args.soldier||null,
+        p_issue:args.issue||null,
+        p_qty:args.qty??null,
+        p_name:args.name||null,
+        p_day:args.day||null
+      });
+
+    if(r.error)throw r.error;
     await reload();
-    msg('მოქმედება წარმატებით შეინახა ✓');
+    notice('შენახულია ✓');
   }catch(e){
-    err(e);
+    notice('შეცდომა: '+(e.message||e));
   }finally{
     setBusy(false);
   }
 }
-const itemName=id=>items.find(i=>i.id===id)?.name||'—';
-const soldierName=id=>soldiers.find(s=>s.id===id)?.name||'—';
-const available=i=>Number(i.initial_qty||0)+Number(i.added_qty||0)-
-  issues.filter(x=>x.item_id===i.id&&x.status!=='returned').length;
 
 function dateToolbar(){
   return `<div class="toolbar">
     <b>თარიღი:</b>
-    <input id="day" type="date" value="${esc(selectedDay)}" max="${day()}">
+    <input type="date" id="day"
+      value="${esc(selectedDay)}" max="${day()}">
     <button id="today">დღეს</button>
-    <span id="liveClock" class="muted"></span>
+    <span id="clock" class="muted"></span>
   </div>`;
 }
-function issueCell(x){
-  const isOut=x.status==='out';
-  const cls=x.status==='returned'?'returned':x.status==='lost'?'lost':'';
-  const status=x.status==='returned'?'დაბრუნდა':x.status==='lost'?'დაიკარგა':'დასაბრუნებელია';
-  return `<div class="issue ${cls}">
-    <b>${esc(itemName(x.item_id))}</b>
-    <span class="small">სტატუსი: ${status}</span>
-    <span class="small">გასცა: ${esc(x.issued_by||'—')}</span>
-    <span class="small">გაცემის დრო: ${clock(x.issued_at)}</span>
-    ${isOut?`<div class="actions">
-      <button class="good resolve" data-status="returned" data-id="${x.id}">დაბრუნდა</button>
-      <button class="danger resolve" data-status="lost" data-id="${x.id}">დაიკარგა</button>
-    </div>`:`<span class="small">დაფიქსირდა: ${clock(x.resolved_at)}</span>`}
-  </div>`;
-}
-function selectIssue(s,n){
-  const opts=items.filter(i=>available(i)>0).map(i=>
-    `<option value="${i.id}">${esc(i.name)} (${available(i)} დარჩა)</option>`
-  ).join('');
-  return `<div class="cell green">
-    <select class="give" data-s="${s.id}">
-      <option value="">+ გაცემა ${n}</option>
-      ${opts}
-    </select>
-  </div>`;
-}
+
 function stockPage(){
-  return `<section class="panel">
-    <h2>საწყობის აღრიცხვა</h2>
-    <p class="muted">საწყისი რაოდენობა უცვლელია. ახალი მარაგი ემატება ცალკე და ინახება ბაზაში.</p>
-    <div class="toolbar">
-      <input id="newItem" placeholder="ახალი ნივთის დასახელება">
-      <button id="addItem" class="primary">ნივთის დამატება</button>
-      <input id="stockSearch" class="search" placeholder="🔎 ნივთის ძებნა">
-    </div>
-    <div class="scroll"><table>
-      <thead><tr>
-        <th>ნივთი</th><th>საწყისი</th><th>დამატებული</th>
-        <th>დასაბრუნებელი</th><th>დაკარგული</th>
-        <th>დარჩენილი</th><th>მარაგის დამატება</th>
-      </tr></thead>
-      <tbody>${items.map(i=>{
-        const out=issues.filter(x=>x.item_id===i.id&&x.status==='out').length;
-        const lost=issues.filter(x=>x.item_id===i.id&&x.status==='lost').length;
-        return `<tr class="stockRow" data-name="${esc(i.name.toLocaleLowerCase())}">
-          <td><b>${esc(i.name)}</b></td>
-          <td>${i.initial_qty}</td>
-          <td>${i.added_qty}</td>
-          <td>${out}</td>
-          <td>${lost}</td>
-          <td class="${available(i)>0?'green':'red'}"><b>${available(i)}</b></td>
-          <td>
-            <input id="q-${i.id}" type="number" min="1" step="1" placeholder="რაოდენობა" style="width:110px">
-            <button class="stockAdd" data-id="${i.id}">+ დამატება</button>
-          </td>
-        </tr>`;
-      }).join('')}</tbody>
-    </table></div>
-  </section>`;
-}
-function soldiersPage(){
-  const visible=soldiers.filter(s=>s.active||
-    issues.some(x=>x.soldier_id===s.id&&x.issue_day===selectedDay));
+  const list=items.filter(i=>
+    (showArchived||!i.archived)&&
+    i.name.toLocaleLowerCase().includes(
+      stockSearch.toLocaleLowerCase()
+    )
+  );
 
   return `<section class="panel">
-    <h2>ჯარისკაცების ყოველდღიური ჟურნალი</h2>
+    <h2>საწყობი</h2>
+    <div class="toolbar">
+      <input id="newItem" placeholder="ახალი ნივთი">
+      <button id="addItem" class="primary">დამატება</button>
+      <input id="stockSearch" class="search"
+        placeholder="🔎 ნივთის ძებნა"
+        value="${esc(stockSearch)}">
+      <label>
+        <input type="checkbox" id="showArchived"
+          ${showArchived?'checked':''}>
+        წაშლილებიც
+      </label>
+    </div>
+    <p class="muted small">
+      რაოდენობა პირდაპირ საწყის ნაშთს ემატება.
+      წაშლილი ნივთის ისტორია ინახება.
+    </p>
+    <div class="scroll">
+      <table>
+        <thead><tr>
+          <th>ნივთი</th>
+          <th>საწყისი ნაშთი</th>
+          <th>დასაბრუნებელი</th>
+          <th>დაკარგული</th>
+          <th>დარჩენილი</th>
+          <th>მოქმედება</th>
+        </tr></thead>
+        <tbody>
+        ${list.map(i=>`<tr>
+          <td>
+            <b>${esc(i.name)}</b>
+            ${i.archived?
+              '<span class="small muted">(წაშლილი)</span>':''}
+          </td>
+          <td>${Number(i.initial_qty||0)+Number(i.added_qty||0)}</td>
+          <td>${issues.filter(x=>
+            x.item_id===i.id&&x.status==='out').length}</td>
+          <td>${issues.filter(x=>
+            x.item_id===i.id&&x.status==='lost').length}</td>
+          <td class="${available(i)>0?'green':'red'}">
+            <b>${available(i)}</b>
+          </td>
+          <td>
+            ${i.archived?
+              `<button class="restoreItem" data-id="${i.id}">
+                აღდგენა
+              </button>`:
+              `<input id="q-${i.id}" type="number"
+                min="1" max="100000" step="1"
+                placeholder="რაოდენობა"
+                style="width:110px">
+              <button class="addStock" data-id="${i.id}">
+                + დამატება
+              </button>
+              <button class="danger archiveItem" data-id="${i.id}">
+                წაშლა
+              </button>`}
+          </td>
+        </tr>`).join('')||
+          '<tr><td colspan="6">ნივთები არ მოიძებნა</td></tr>'}
+        </tbody>
+      </table>
+    </div>
+  </section>`;
+}
+
+function issueCard(x){
+  const status=x.status==='out'
+    ?'დასაბრუნებელია'
+    :x.status==='returned'
+      ?'დაბრუნდა'
+      :'დაიკარგა';
+
+  return `<div class="issue ${x.status==='out'?'':x.status}">
+    <b>${esc(itemName(x.item_id))}</b>
+    <div class="small">${status} · ${clock(x.issued_at)}</div>
+    ${x.status==='out'?`
+      <button class="good resolve"
+        data-id="${x.id}" data-status="returned">
+        დაბრუნდა
+      </button>
+      <button class="danger resolve"
+        data-id="${x.id}" data-status="lost">
+        დაიკარგა
+      </button>`:''}
+    <button class="cancelIssue" data-id="${x.id}"
+      title="შეცდომით გაცემული ჩანაწერის გაუქმება">
+      ✕ წაშლა
+    </button>
+  </div>`;
+}
+
+function soldiersPage(){
+  const list=soldiers.filter(s=>
+    (s.active||issues.some(x=>
+      x.soldier_id===s.id&&x.issue_day===selectedDay
+    ))&&s.name.toLocaleLowerCase().includes(
+      soldierSearch.toLocaleLowerCase()
+    )
+  );
+
+  return `<section class="panel">
+    <h2>ჯარისკაცების ჟურნალი</h2>
     ${dateToolbar()}
     <div class="toolbar">
-      <input id="soldierSearch" class="search" placeholder="🔎 მოძებნე ჯარისკაცი" value="${esc(search)}">
-      <span class="muted">თითოეული გაცემა = 1 ნივთი · მაქსიმუმ 4 აქტიური ველი</span>
+      <input id="soldierSearch" class="search"
+        placeholder="🔎 ჯარისკაცის ძებნა"
+        value="${esc(soldierSearch)}">
+      <span class="muted small">
+        წითელი — გაცემული · მწვანე — დაბრუნებული
+      </span>
     </div>
-    <div class="scroll"><table>
+    <div class="scroll">
+      <table>
+        <thead><tr>
+          <th>ჯარისკაცი</th>
+          ${[1,2,3,4].map(n=>
+            `<th>აღჭურვილობა ${n}</th>`).join('')}
+          <th>ყველა ნივთი</th>
+        </tr></thead>
+        <tbody>
+        ${list.map(s=>{
+          const rows=issues.filter(x=>
+            x.soldier_id===s.id&&
+            x.issue_day===selectedDay&&
+            x.status!=='cancelled'
+          );
+          const open=rows.filter(x=>x.status==='out');
+          const recent=rows.slice(-4).reverse();
+
+          return `<tr>
+            <td><b>${esc(s.name)}</b></td>
+            ${[0,1,2,3].map(n=>`<td class="cell">
+              ${recent[n]?
+                issueCard(recent[n]):
+                s.active&&selectedDay===day()&&open.length<4?
+                `<select class="give" data-s="${s.id}">
+                  <option value="">+ გაცემა</option>
+                  ${items.filter(i=>
+                    !i.archived&&available(i)>0
+                  ).map(i=>`<option value="${i.id}">
+                    ${esc(i.name)} (${available(i)})
+                  </option>`).join('')}
+                </select>`:'—'}
+            </td>`).join('')}
+            <td>
+              <div class="small">
+                დასაბრუნებელია: <b>${open.length}</b>
+              </div>
+              <div class="actions">
+                <button class="good bulk"
+                  data-status="all_returned"
+                  data-s="${s.id}"
+                  ${open.length?'':'disabled'}>
+                  ყველას დაბრუნება
+                </button>
+                <button class="danger bulk"
+                  data-status="all_lost"
+                  data-s="${s.id}"
+                  ${open.length?'':'disabled'}>
+                  ყველა დაკარგულად
+                </button>
+              </div>
+              ${rows.length>4?
+                `<div class="small muted">
+                  სხვა ჩანაწერები: ${rows.length-4}
+                  (იხილე შეჯამება)
+                </div>`:''}
+            </td>
+          </tr>`;
+        }).join('')||
+          '<tr><td colspan="6">ჯარისკაცი ვერ მოიძებნა</td></tr>'}
+        </tbody>
+      </table>
+    </div>
+  </section>`;
+}
+
+function report(rows){
+  return `<div class="scroll">
+    <table>
       <thead><tr>
-        <th>სახელი და გვარი</th>
-        <th>აღჭურვილობა 1</th>
-        <th>აღჭურვილობა 2</th>
-        <th>აღჭურვილობა 3</th>
-        <th>აღჭურვილობა 4</th>
-        <th>სწრაფი მოქმედებები</th>
+        <th>ჯარისკაცი</th>
+        <th>ნივთი</th>
+        <th>გაცემის დრო</th>
+        <th>გასცა</th>
+        <th>სტატუსი</th>
+        <th>განახლების დრო</th>
+        <th>მოქმედება</th>
       </tr></thead>
-      <tbody>${visible.filter(s=>s.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())).map(s=>{
-        const todays=issues.filter(x=>x.soldier_id===s.id&&x.issue_day===selectedDay);
-        const active=todays.filter(x=>x.status==='out');
-        const finished=todays.filter(x=>x.status!=='out');
-        const slots=[...active,...finished];
-        return `<tr>
-          <td><b>${esc(s.name)}</b><div class="small muted">${s.active?'აქტიური':'არააქტიური'}</div></td>
-          ${[0,1,2,3].map(n=>`<td class="cell">
-            ${slots[n]?issueCell(slots[n]):s.active&&selectedDay===day()&&active.length<4?
-              selectIssue(s,n+1):'<span class="chip green">არ არის გაცემული</span>'}
-          </td>`).join('')}
-          <td>
-            <div class="actions">
-              <button class="good bulk" data-status="all_returned" data-s="${s.id}" ${active.length?'':'disabled'}>ყველას დაბრუნება</button>
-              <button class="danger bulk" data-status="all_lost" data-s="${s.id}" ${active.length?'':'disabled'}>ყველა დაკარგულად</button>
-            </div>
-            <div class="small muted">დასაბრუნებელია: ${active.length}</div>
-            ${finished.map(x=>`<div class="small">${esc(itemName(x.item_id))}: ${x.status==='returned'?'დაბრუნდა':'დაიკარგა'}</div>`).join('')}
-          </td>
-        </tr>`;
-      }).join('')||'<tr><td colspan="6">ჯარისკაცი ვერ მოიძებნა</td></tr>'}</tbody>
-    </table></div>
-  </section>`;
+      <tbody>
+      ${rows.map(x=>`<tr>
+        <td>${esc(soldierName(x.soldier_id))}</td>
+        <td>${esc(itemName(x.item_id))}</td>
+        <td>${clock(x.issued_at)}</td>
+        <td>${esc(x.issued_by)}</td>
+        <td class="${x.status==='lost'?'red':
+          x.status==='returned'?'green':''}">
+          ${x.status==='out'?'დასაბრუნებელია':
+            x.status==='lost'?'დაიკარგა':'დაბრუნდა'}
+        </td>
+        <td>${clock(x.resolved_at)}</td>
+        <td>
+          <button class="cancelIssue" data-id="${x.id}">
+            ✕ წაშლა
+          </button>
+        </td>
+      </tr>`).join('')||
+        '<tr><td colspan="7">ჩანაწერები არ არის</td></tr>'}
+      </tbody>
+    </table>
+  </div>`;
 }
-function reportTable(rows){
-  return `<div class="scroll"><table>
-    <thead><tr>
-      <th>ჯარისკაცი</th><th>ნივთი</th><th>გაცემის თარიღი</th>
-      <th>გასცა</th><th>სტატუსი</th>
-      <th>დაფიქსირების დრო</th><th>დააფიქსირა</th>
-    </tr></thead>
-    <tbody>${rows.map(x=>`<tr>
-      <td>${esc(soldierName(x.soldier_id))}</td>
-      <td>${esc(itemName(x.item_id))}</td>
-      <td>${displayDate(x.issue_day)} · ${clock(x.issued_at)}</td>
-      <td>${esc(x.issued_by)}</td>
-      <td class="${x.status==='lost'?'red':x.status==='returned'?'green':''}">
-        ${x.status==='out'?'დასაბრუნებელია':x.status==='lost'?'დაიკარგა':'დაბრუნდა'}
-      </td>
-      <td>${clock(x.resolved_at)}</td>
-      <td>${esc(x.resolved_by||'—')}</td>
-    </tr>`).join('')||'<tr><td colspan="7">ჩანაწერები არ არის</td></tr>'}</tbody>
-  </table></div>`;
-}
+
 function lostPage(){
-  const lost=issues.filter(x=>x.status==='lost'&&x.resolved_day===selectedDay);
+  const r=issues.filter(x=>
+    x.status==='lost'&&x.resolved_day===selectedDay
+  );
   return `<section class="panel">
-    <h2>დაკარგული ნივთები</h2>${dateToolbar()}
-    <p>არჩეულ დღეს დაკარგულად დაფიქსირდა: <b>${lost.length}</b></p>
-    ${reportTable(lost)}
+    <h2>დაკარგული ნივთები</h2>
+    ${dateToolbar()}
+    <p>დაკარგულია: ${r.length}</p>
+    ${report(r)}
   </section>`;
 }
+
 function summaryPage(){
-  const issued=issues.filter(x=>x.issue_day===selectedDay);
-  const returned=issues.filter(x=>x.resolved_day===selectedDay&&x.status==='returned');
-  const lost=issues.filter(x=>x.resolved_day===selectedDay&&x.status==='lost');
-  const out=issued.filter(x=>x.status==='out');
+  const today=issues.filter(x=>
+    x.issue_day===selectedDay&&x.status!=='cancelled'
+  );
+  const returned=issues.filter(x=>
+    x.resolved_day===selectedDay&&x.status==='returned'
+  );
+  const lost=issues.filter(x=>
+    x.resolved_day===selectedDay&&x.status==='lost'
+  );
+
   return `<section class="panel">
-    <h2>დღის შეჯამება</h2>${dateToolbar()}
-    <div class="summary">
-      ${[['გაცემულია',issued.length],['დაბრუნდა',returned.length],['დაიკარგა',lost.length],['ამ დღის დასაბრუნებელი',out.length]].map(x=>`<div class="stat"><div>${x[0]}</div><h2>${x[1]}</h2></div>`).join('')}
-    </div>
-    <h2>ამ დღეს გაცემული</h2>${reportTable(issued)}
-    <h2>ამ დღეს დაბრუნებული</h2>${reportTable(returned)}
-    <h2>ამ დღეს დაკარგული</h2>${reportTable(lost)}
-    <h2>ჯერ დასაბრუნებელია (ყველა თარიღიდან)</h2>
-    ${reportTable(issues.filter(x=>x.status==='out'))}
+    <h2>დღის შეჯამება</h2>
+    ${dateToolbar()}
+    ${[
+      ['გაცემულია',today.length],
+      ['დაბრუნდა',returned.length],
+      ['დაიკარგა',lost.length],
+      ['დასაბრუნებელია',
+        issues.filter(x=>x.status==='out').length]
+    ].map(x=>`<div class="stat">
+      ${x[0]}<strong>${x[1]}</strong>
+    </div>`).join('')}
+    <h2>ჩანაწერები</h2>
+    ${report(today)}
   </section>`;
 }
+
 function render(){
   if($('#app').classList.contains('hidden'))return;
+
   $('#content').innerHTML=
     page==='stock'?stockPage():
     page==='soldiers'?soldiersPage():
     page==='lost'?lostPage():summaryPage();
 
-  document.querySelectorAll('nav [data-page]').forEach(b=>
-    b.classList.toggle('active',b.dataset.page===page));
-  updateClock();
+  document.querySelectorAll('nav [data-page]')
+    .forEach(b=>b.classList.toggle(
+      'active',b.dataset.page===page
+    ));
+  tick();
 }
-function updateClock(){
-  const el=$('#liveClock');
-  if(el)el.textContent='ახლა: '+clock(new Date().toISOString());
+
+function tick(){
+  if($('#clock')){
+    $('#clock').textContent='ახლა: '+clock(new Date());
+  }
 }
-setInterval(updateClock,1000);
+setInterval(tick,1000);
 
 $('#content').addEventListener('input',e=>{
-  if(e.target.id==='soldierSearch'){
-    search=e.target.value;
+  if(['soldierSearch','stockSearch'].includes(e.target.id)){
+    const id=e.target.id;
     const pos=e.target.selectionStart;
-    render();
-    const input=$('#soldierSearch');
-    if(input){
-      input.focus();
-      input.setSelectionRange(pos,pos);
+
+    if(id==='soldierSearch'){
+      soldierSearch=e.target.value;
+    }else{
+      stockSearch=e.target.value;
     }
-  }
-  if(e.target.id==='stockSearch'){
-    const q=e.target.value.toLocaleLowerCase();
-    document.querySelectorAll('.stockRow').forEach(row=>{
-      row.style.display=row.dataset.name.includes(q)?'':'none';
-    });
+
+    render();
+    const el=$('#'+id);
+    el?.focus();
+    el?.setSelectionRange(pos,pos);
   }
 });
 
@@ -470,50 +614,66 @@ $('#content').addEventListener('change',async e=>{
   if(e.target.id==='day'){
     selectedDay=e.target.value;
     render();
-  }
-  if(e.target.classList.contains('give')&&e.target.value){
+  }else if(e.target.id==='showArchived'){
+    showArchived=e.target.checked;
+    render();
+  }else if(e.target.classList.contains('give')&&e.target.value){
     const item=e.target.value;
     const soldier=e.target.dataset.s;
     e.target.value='';
-    await action('issue',{item,soldier,day:selectedDay});
+    await act('issue',{item,soldier,day:selectedDay});
   }
 });
 
 $('#content').addEventListener('click',async e=>{
   const b=e.target.closest('button');
-  if(!b)return;
+  if(!b||busy)return;
 
   if(b.id==='today'){
     selectedDay=day();
     render();
+
   }else if(b.id==='addItem'){
     const name=$('#newItem').value.trim();
-    if(name)await action('add_item',{name});
-  }else if(b.classList.contains('stockAdd')){
+    if(name.length>1){
+      await act('add_item',{name});
+    }else{
+      notice('შეიყვანე ნივთის დასახელება');
+    }
+
+  }else if(b.classList.contains('addStock')){
     const qty=Number($('#q-'+b.dataset.id).value);
-    if(Number.isInteger(qty)&&qty>0&&
-       confirm(`საწყობში ${qty} ცალის დამატება?`)){
-      await action('stock',{item:b.dataset.id,qty});
+    if(Number.isInteger(qty)&&qty>0&&qty<=100000){
+      await act('stock',{item:b.dataset.id,qty},true);
+    }else{
+      notice('შეიყვანე სწორი რაოდენობა');
     }
+
+  }else if(b.classList.contains('archiveItem')){
+    await act('archive_item',{item:b.dataset.id},true);
+
+  }else if(b.classList.contains('restoreItem')){
+    await act('restore_item',{item:b.dataset.id},true);
+
+  }else if(b.classList.contains('cancelIssue')){
+    await act('cancel_issue',{issue:b.dataset.id},true);
+
   }else if(b.classList.contains('resolve')){
-    const status=b.dataset.status;
-    if(confirm(status==='lost'?'დაკარგულად მონიშვნა?':'დაბრუნების დადასტურება?')){
-      await action(status,{issue:b.dataset.id});
-    }
+    await act(b.dataset.status,{issue:b.dataset.id});
+
   }else if(b.classList.contains('bulk')){
-    const status=b.dataset.status;
-    if(confirm(status==='all_lost'?'ყველა დაკარგულად მონიშნოს?':'ყველა ნივთი დაბრუნდა?')){
-      await action(status,{soldier:b.dataset.s,day:selectedDay});
-    }
+    await act(b.dataset.status,{
+      soldier:b.dataset.s,
+      day:selectedDay
+    });
   }
 });
 
-document.querySelectorAll('nav [data-page]').forEach(b=>
-  b.addEventListener('click',()=>{
+document.querySelectorAll('nav [data-page]')
+  .forEach(b=>b.addEventListener('click',()=>{
     page=b.dataset.page;
     render();
-  })
-);
+  }));
 
 $('#logout').onclick=async()=>{
   await sb.auth.signOut();
@@ -522,39 +682,50 @@ $('#logout').onclick=async()=>{
 
 $('#loginForm').onsubmit=async e=>{
   e.preventDefault();
-  if(!sb)return msg('შეავსე config.js');
+
+  if(!sb){
+    return notice('config.js არ არის გამართული');
+  }
+
   const email=conf.LOGIN_EMAILS?.[$('#username').value];
-  if(!email)return msg('მომხმარებლის ელფოსტა config.js-ში არ არის');
+  if(!email){
+    return notice('მომხმარებელი config.js-ში არ არის');
+  }
+
   const {error}=await sb.auth.signInWithPassword({
-    email,password:$('#password').value
+    email,
+    password:$('#password').value
   });
-  if(error)err(error);
-  else await start();
+
+  if(error){
+    notice('შეცდომა: '+error.message);
+  }else{
+    await start();
+  }
 };
 
 async function start(){
   if(!sb){
-    msg('Supabase არ არის დაკავშირებული');
-    return;
+    return notice('Supabase არ არის დაკავშირებული');
   }
+
   const {data:{session}}=await sb.auth.getSession();
   if(!session)return;
 
   const {data:name,error}=await sb.rpc('my_name');
   if(error||!name){
     await sb.auth.signOut();
-    return err('მომხმარებელს წვდომა არ აქვს');
+    return notice('წვდომა არ გაქვს');
   }
 
-  me=name;
-  $('#identity').textContent=me;
+  $('#identity').textContent=name;
   $('#login').classList.add('hidden');
   $('#app').classList.remove('hidden');
 
   try{
     await reload();
   }catch(e){
-    err(e);
+    notice('ჩატვირთვის შეცდომა: '+e.message);
   }
 }
 
@@ -565,7 +736,7 @@ setInterval(async()=>{
     try{
       await reload();
     }catch(e){
-      console.warn('განახლება ვერ შესრულდა:',e);
+      console.warn(e);
     }
   }
 },30000);
