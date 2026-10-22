@@ -7,97 +7,35 @@
 <title>Frontier Quartermaster</title>
 <style>
 :root{
-  --dark:#261a15;
-  --brown:#473027;
-  --gold:#b58b49;
-  --paper:#f2e4c9;
-  --light:#fff9ed;
-  --red:#a72f27;
-  --green:#356c46;
+  --dark:#261a15;--brown:#473027;--gold:#b58b49;
+  --paper:#f2e4c9;--light:#fff9ed;
+  --red:#a72f27;--green:#356c46
 }
 *{box-sizing:border-box}
-body{
-  margin:0;
-  background:#d6c2a0;
-  color:var(--dark);
-  font:15px Georgia,serif;
-}
-header{
-  background:var(--dark);
-  color:var(--paper);
-  padding:18px 25px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-}
+body{margin:0;background:#d6c2a0;color:var(--dark);font:15px Georgia,serif}
+header{background:var(--dark);color:var(--paper);padding:18px 25px;display:flex;justify-content:space-between;gap:12px}
 h1{font-size:23px;margin:0}
 h2{margin:5px 0 15px}
 h3{margin:14px 0 8px}
 button,input,select{
-  font:inherit;
-  padding:8px;
-  border:1px solid #9c815f;
-  border-radius:4px;
-  background:var(--light);
-  color:var(--dark);
+  font:inherit;padding:8px;border:1px solid #9c815f;
+  border-radius:4px;background:var(--light);color:var(--dark)
 }
 button{cursor:pointer}
-button:hover{filter:brightness(.94)}
 button:disabled{opacity:.5;cursor:not-allowed}
 .primary{background:var(--brown);color:white}
 .good{background:var(--green);color:white}
 .danger{background:var(--red);color:white}
-nav{
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
-  background:var(--brown);
-  padding:10px 18px;
-}
+nav{display:flex;flex-wrap:wrap;gap:7px;background:var(--brown);padding:10px 18px}
 nav button{background:#e6d1a7}
-nav button.active{
-  background:var(--gold);
-  font-weight:bold;
-}
-main{
-  padding:20px;
-  max-width:1650px;
-  margin:auto;
-}
-.panel{
-  background:var(--paper);
-  border:2px solid #92724d;
-  padding:16px;
-  margin-bottom:15px;
-  box-shadow:0 3px 8px #604c3822;
-}
-.toolbar{
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  gap:9px;
-  margin:12px 0;
-}
+nav button.active{background:var(--gold);font-weight:bold}
+main{padding:20px;max-width:1650px;margin:auto}
+.panel{background:var(--paper);border:2px solid #92724d;padding:16px;margin-bottom:15px}
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:12px 0}
 .scroll{overflow:auto;max-height:73vh}
-table{
-  width:100%;
-  border-collapse:collapse;
-  background:var(--light);
-}
-th,td{
-  padding:9px;
-  border:1px solid #b8a07a;
-  text-align:left;
-  vertical-align:top;
-}
-th{
-  background:var(--brown);
-  color:white;
-  position:sticky;
-  top:0;
-  z-index:1;
-}
+table{width:100%;border-collapse:collapse;background:var(--light)}
+th,td{padding:9px;border:1px solid #b8a07a;text-align:left;vertical-align:top}
+th{background:var(--brown);color:white;position:sticky;top:0;z-index:1}
 tr:nth-child(even) td{background:#f0e2c9}
 .red{background:#f4c8bf!important;color:#761b18}
 .green{background:#d9ead7!important;color:#225734}
@@ -107,55 +45,26 @@ tr:nth-child(even) td{background:#f0e2c9}
 .search{width:min(350px,100%)}
 .cell{min-width:160px}
 .cell select{width:100%}
-.issue{
-  padding:7px;
-  margin-bottom:5px;
-  background:#e8b6ac;
-  border-left:4px solid var(--red);
-}
-.issue.returned{
-  background:#d9ead7;
-  border-color:var(--green);
-}
+.issue{padding:7px;margin-bottom:5px;background:#e8b6ac;border-left:4px solid var(--red)}
+.issue.returned{background:#d9ead7;border-color:var(--green)}
 .issue.lost{background:#f4c8bf}
 .issue button{font-size:12px;padding:5px;margin:3px 2px 0 0}
 .actions{display:flex;gap:5px;flex-wrap:wrap}
-.stat{
-  display:inline-block;
-  background:#f9edda;
-  border:1px solid #b49a73;
-  padding:12px;
-  margin:5px;
-  min-width:130px;
-}
+.stat{display:inline-block;background:#f9edda;border:1px solid #b49a73;padding:12px;margin:5px;min-width:130px}
 .stat strong{display:block;font-size:22px}
 #login{max-width:530px;margin:65px auto}
 #message{
-  position:fixed;
-  bottom:15px;
-  right:15px;
-  z-index:10;
-  background:#382720;
-  color:white;
-  padding:13px;
-  max-width:450px;
-  white-space:pre-wrap;
-  display:none;
+  position:fixed;bottom:15px;right:15px;z-index:10;
+  background:#382720;color:white;padding:13px;
+  max-width:450px;white-space:pre-wrap;display:none
 }
-.warning{
-  display:inline-block;
-  border-radius:4px;
-  padding:6px 10px;
-  font-weight:bold;
-}
-.warning.w0{background:#e3d6be}
-.warning.w1{background:#f5e6aa}
-.warning.w2{background:#efc38c}
-.warning.w3{background:#f0a8a0}
+.warning{display:inline-block;border-radius:4px;padding:6px 10px;font-weight:bold}
+.w0{background:#e3d6be}.w1{background:#f5e6aa}
+.w2{background:#efc38c}.w3{background:#f0a8a0}
+.att-present{background:#d9ead7!important}
+.att-absent{background:#f4c8bf!important}
 @media(max-width:800px){
-  main{padding:8px}
-  header{display:block}
-  h1{font-size:19px}
+  main{padding:8px}header{display:block}h1{font-size:19px}
 }
 </style>
 </head>
@@ -175,8 +84,7 @@ tr:nth-child(even) td{background:#f0e2c9}
       <option>tyler Westwood</option>
       <option>Satoshi Nikamoto</option>
     </select>
-    <input id="password" type="password"
-           placeholder="პაროლი" required>
+    <input id="password" type="password" placeholder="პაროლი" required>
     <button class="primary">შესვლა</button>
   </form>
 </div>
@@ -186,6 +94,7 @@ tr:nth-child(even) td{background:#f0e2c9}
     <button data-page="stock" class="active">საწყობი</button>
     <button data-page="issue">იარაღის გაცემა</button>
     <button data-page="soldiers">ჯარისკაცები</button>
+    <button data-page="attendance">აღრიცხვა</button>
     <button data-page="warnings">საყვედური</button>
     <button data-page="lost">დაკარგული</button>
     <button data-page="summary">დღის შეჯამება</button>
@@ -207,53 +116,43 @@ const sb=conf.SUPABASE_URL&&conf.SUPABASE_ANON_KEY
 
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({
-  '&':'&amp;',
-  '<':'&lt;',
-  '>':'&gt;',
-  '"':'&quot;',
-  "'":'&#39;'
+  '&':'&amp;','<':'&lt;','>':'&gt;',
+  '"':'&quot;',"'":'&#39;'
 }[c]));
 
 const day=()=>new Intl.DateTimeFormat('en-CA',{
-  timeZone:'Europe/Paris',
-  year:'numeric',
-  month:'2-digit',
-  day:'2-digit'
+  timeZone:'Europe/Paris',year:'numeric',
+  month:'2-digit',day:'2-digit'
 }).format(new Date());
 
 const clock=t=>t?new Date(t).toLocaleString('ka-GE',{
-  timeZone:'Europe/Paris',
-  day:'2-digit',
-  month:'2-digit',
-  year:'numeric',
-  hour:'2-digit',
-  minute:'2-digit'
+  timeZone:'Europe/Paris',day:'2-digit',
+  month:'2-digit',year:'numeric',
+  hour:'2-digit',minute:'2-digit'
 }):'—';
 
-let page='stock';
-let selectedDay=day();
-let items=[],soldiers=[],issues=[],warnings=[];
+let page='stock',selectedDay=day();
+let items=[],soldiers=[],issues=[],warnings=[],attendance=[];
 let busy=false,loading=false;
-let stockSearch='',soldierSearch='';
+let stockSearch='',soldierSearch='',attendanceSearch='';
 let showArchived=false,showRetired=false;
 
 const itemName=id=>items.find(x=>x.id===id)?.name||'—';
 const soldierName=id=>soldiers.find(x=>x.id===id)?.name||'—';
 const warningCount=id=>warnings.find(x=>x.soldier_id===id)?.warning_count||0;
-const used=id=>issues.filter(x=>
-  x.item_id===id&&['out','lost'].includes(x.status)
-).length;
-const available=i=>
-  Number(i.initial_qty||0)+Number(i.added_qty||0)-used(i.id);
+const used=id=>issues.filter(x=>x.item_id===id&&['out','lost'].includes(x.status)).length;
+const available=i=>Number(i.initial_qty||0)+Number(i.added_qty||0)-used(i.id);
+const attendanceStatus=id=>attendance.find(x=>
+  x.soldier_id===id&&x.day===selectedDay
+)?.status||'unset';
 
 function notice(t){
   $('#message').textContent=t;
   $('#message').style.display='block';
   clearTimeout(notice.timer);
-  notice.timer=setTimeout(()=>{
-    $('#message').style.display='none';
-  },5500);
+  notice.timer=setTimeout(()=>$('#message').style.display='none',5500);
 }
+
 function setBusy(v){
   busy=v;
   document.querySelectorAll('#content button,#content select')
@@ -268,10 +167,11 @@ async function reload(){
       sb.from('items').select('*').order('name'),
       sb.from('soldiers').select('*').order('name'),
       sb.from('issues').select('*').order('issued_at'),
-      sb.from('soldier_warnings').select('*')
+      sb.from('soldier_warnings').select('*'),
+      sb.from('attendance').select('*').eq('day',selectedDay)
     ]);
     for(const x of r)if(x.error)throw x.error;
-    [items,soldiers,issues,warnings]=r.map(x=>x.data||[]);
+    [items,soldiers,issues,warnings,attendance]=r.map(x=>x.data||[]);
     render();
   }finally{
     loading=false;
@@ -286,23 +186,27 @@ async function action(kind,args={},mode='original'){
 
     if(mode==='manage'){
       r=await sb.rpc('warehouse_manage',{
-        p_action:kind,
-        p_item:args.item||null,
+        p_action:kind,p_item:args.item||null,
         p_soldier:args.soldier||null,
         p_name:args.name||null,
         p_count:args.count??null
       });
     }else if(mode==='edit'){
       r=await sb.rpc('warehouse_edit',{
-        p_action:kind,
-        p_item:args.item||null,
-        p_issue:args.issue||null,
-        p_qty:args.qty??null
+        p_action:kind,p_item:args.item||null,
+        p_issue:args.issue||null,p_qty:args.qty??null
+      });
+    }else if(mode==='reset'){
+      r=await sb.rpc('reset_item_stock',{p_item:args.item});
+    }else if(mode==='attendance'){
+      r=await sb.rpc('save_attendance',{
+        p_soldier:args.soldier,
+        p_day:args.day,
+        p_status:args.status
       });
     }else{
       r=await sb.rpc('perform_action',{
-        p_action:kind,
-        p_item:args.item||null,
+        p_action:kind,p_item:args.item||null,
         p_soldier:args.soldier||null,
         p_issue:args.issue||null,
         p_qty:args.qty??null,
@@ -324,8 +228,7 @@ async function action(kind,args={},mode='original'){
 function dateToolbar(){
   return `<div class="toolbar">
     <b>თარიღი:</b>
-    <input type="date" id="day"
-      value="${esc(selectedDay)}" max="${day()}">
+    <input type="date" id="day" value="${esc(selectedDay)}" max="${day()}">
     <button id="today">დღეს</button>
     <span id="liveClock" class="muted"></span>
   </div>`;
@@ -334,9 +237,7 @@ function dateToolbar(){
 function stockPage(){
   const list=items.filter(i=>
     (showArchived||!i.archived)&&
-    i.name.toLocaleLowerCase().includes(
-      stockSearch.toLocaleLowerCase()
-    )
+    i.name.toLocaleLowerCase().includes(stockSearch.toLocaleLowerCase())
   );
 
   return `<section class="panel">
@@ -345,46 +246,41 @@ function stockPage(){
       <input id="newItem" placeholder="ახალი ნივთის სახელი">
       <button id="addItem" class="primary">ნივთის დამატება</button>
       <input id="stockSearch" class="search"
-        placeholder="🔎 ნივთის ძებნა"
-        value="${esc(stockSearch)}">
+        placeholder="🔎 ნივთის ძებნა" value="${esc(stockSearch)}">
       <label><input type="checkbox" id="showArchived"
         ${showArchived?'checked':''}> წაშლილებიც</label>
     </div>
+    <p class="small muted">
+      ნაშთის განულება ხელმისაწვდომ რაოდენობას ნულზე აყენებს.
+      გაცემული და დაკარგული ნივთების ისტორია არ იშლება.
+    </p>
     <div class="scroll"><table>
       <thead><tr>
-        <th>ნივთი</th>
-        <th>საწყისი ნაშთი</th>
-        <th>დასაბრუნებელი</th>
-        <th>დაკარგული</th>
-        <th>დარჩენილი</th>
+        <th>ნივთი</th><th>ხელმისაწვდომი ნაშთი</th>
+        <th>დასაბრუნებელი</th><th>დაკარგული</th>
         <th>მოქმედებები</th>
       </tr></thead>
       <tbody>
       ${list.map(i=>`<tr>
-        <td>
-          <b>${esc(i.name)}</b>
+        <td><b>${esc(i.name)}</b>
           ${i.archived?'<span class="muted small">(წაშლილი)</span>':''}
         </td>
-        <td>${Number(i.initial_qty||0)+Number(i.added_qty||0)}</td>
+        <td class="${available(i)>0?'green':'red'}"><b>${available(i)}</b></td>
         <td>${issues.filter(x=>x.item_id===i.id&&x.status==='out').length}</td>
         <td>${issues.filter(x=>x.item_id===i.id&&x.status==='lost').length}</td>
-        <td class="${available(i)>0?'green':'red'}">
-          <b>${available(i)}</b>
-        </td>
-        <td>
-          ${i.archived?
-            `<button class="restoreItem" data-id="${i.id}">აღდგენა</button>`:
-            `<div class="actions">
-              <input id="q-${i.id}" type="number"
-                min="1" max="100000" step="1"
-                placeholder="რაოდენობა" style="width:105px">
-              <button class="addStock" data-id="${i.id}">+ დამატება</button>
-              <button class="renameItem" data-id="${i.id}">სახელის შეცვლა</button>
-              <button class="danger archiveItem" data-id="${i.id}">წაშლა</button>
-            </div>`}
+        <td>${i.archived?
+          `<button class="restoreItem" data-id="${i.id}">აღდგენა</button>`:
+          `<div class="actions">
+            <input id="q-${i.id}" type="number" min="1" max="100000"
+              step="1" placeholder="რაოდენობა" style="width:105px">
+            <button class="addStock" data-id="${i.id}">+ დამატება</button>
+            <button class="renameItem" data-id="${i.id}">სახელის შეცვლა</button>
+            <button class="resetStock" data-id="${i.id}">ნაშთის განულება</button>
+            <button class="danger archiveItem" data-id="${i.id}">წაშლა</button>
+          </div>`}
         </td>
       </tr>`).join('')||
-        '<tr><td colspan="6">ნივთი არ მოიძებნა</td></tr>'}
+        '<tr><td colspan="5">ნივთი არ მოიძებნა</td></tr>'}
       </tbody>
     </table></div>
   </section>`;
@@ -396,37 +292,32 @@ function issueCard(x){
 
   return `<div class="issue ${x.status==='out'?'':x.status}">
     <b>${esc(itemName(x.item_id))}</b>
-    <div class="small">${status}</div>
-    <div class="small">${clock(x.issued_at)}</div>
+    <div class="small">${status} · ${clock(x.issued_at)}</div>
     ${x.status==='out'?`
-      <button class="good resolve"
-        data-id="${x.id}" data-status="returned">დაბრუნდა</button>
-      <button class="danger resolve"
-        data-id="${x.id}" data-status="lost">დაიკარგა</button>`:''}
+      <button class="good resolve" data-id="${x.id}"
+        data-status="returned">დაბრუნდა</button>
+      <button class="danger resolve" data-id="${x.id}"
+        data-status="lost">დაიკარგა</button>`:''}
     <button class="cancelIssue" data-id="${x.id}">✕ გაუქმება</button>
   </div>`;
 }
 
 function issuePage(){
-  const todayRows=issues.filter(x=>
+  const rows=issues.filter(x=>
     x.issue_day===selectedDay&&x.status!=='cancelled'
   );
 
   const list=soldiers.filter(s=>
-    (s.active||todayRows.some(x=>x.soldier_id===s.id))&&
-    s.name.toLocaleLowerCase().includes(
-      soldierSearch.toLocaleLowerCase()
-    )
+    (s.active||rows.some(x=>x.soldier_id===s.id))&&
+    s.name.toLocaleLowerCase().includes(soldierSearch.toLocaleLowerCase())
   ).sort((a,b)=>{
-    const priority=s=>{
-      const rows=todayRows.filter(x=>x.soldier_id===s.id);
-      if(rows.some(x=>x.status==='out'))return 3;
-      if(rows.some(x=>x.status==='lost'))return 2;
-      if(rows.length)return 1;
-      return 0;
+    const rank=s=>{
+      const r=rows.filter(x=>x.soldier_id===s.id);
+      if(r.some(x=>x.status==='out'))return 3;
+      if(r.some(x=>x.status==='lost'))return 2;
+      return r.length?1:0;
     };
-    return priority(b)-priority(a)||
-      a.name.localeCompare(b.name);
+    return rank(b)-rank(a)||a.name.localeCompare(b.name);
   });
 
   return `<section class="panel">
@@ -434,46 +325,30 @@ function issuePage(){
     ${dateToolbar()}
     <div class="toolbar">
       <input id="soldierSearch" class="search"
-        placeholder="🔎 ჯარისკაცის ძებნა"
-        value="${esc(soldierSearch)}">
-      <span class="muted small">
-        გაცემული ნივთების მქონე ჯარისკაცები ზემოთ არიან
-      </span>
+        placeholder="🔎 ჯარისკაცის ძებნა" value="${esc(soldierSearch)}">
+      <span class="muted small">გაცემული ნივთების მქონე ჯარისკაცები ზემოთ არიან</span>
     </div>
     <div class="scroll"><table>
-      <thead><tr>
-        <th>ჯარისკაცი</th>
-        <th>აღჭურვილობა 1</th>
-        <th>აღჭურვილობა 2</th>
-        <th>აღჭურვილობა 3</th>
-        <th>აღჭურვილობა 4</th>
+      <thead><tr><th>ჯარისკაცი</th>
+        <th>აღჭურვილობა 1</th><th>აღჭურვილობა 2</th>
+        <th>აღჭურვილობა 3</th><th>აღჭურვილობა 4</th>
         <th>მოქმედება</th>
       </tr></thead>
       <tbody>
       ${list.map(s=>{
-        const rows=todayRows.filter(x=>x.soldier_id===s.id);
-        const active=rows.filter(x=>x.status==='out');
+        const own=rows.filter(x=>x.soldier_id===s.id);
+        const active=own.filter(x=>x.status==='out');
         const ordered=[
-          ...active,
-          ...rows.filter(x=>x.status==='lost'),
-          ...rows.filter(x=>x.status==='returned')
+          ...active,...own.filter(x=>x.status==='lost'),
+          ...own.filter(x=>x.status==='returned')
         ];
-        const visible=ordered.slice(0,4);
-
         return `<tr>
-          <td>
-            <b>${esc(s.name)}</b>
-            <div class="small muted">
-              ${s.active?'აქტიური':'გაშვებული'}
-            </div>
-          </td>
+          <td><b>${esc(s.name)}</b></td>
           ${[0,1,2,3].map(n=>`<td class="cell">
-            ${visible[n]?issueCard(visible[n]):'—'}
+            ${ordered[n]?issueCard(ordered[n]):'—'}
           </td>`).join('')}
           <td>
-            <div class="small">
-              დასაბრუნებელია: <b>${active.length}</b>
-            </div>
+            <div class="small">დასაბრუნებელია: ${active.length}</div>
             ${s.active&&selectedDay===day()&&active.length<4?`
               <select class="give" data-s="${s.id}">
                 <option value="">+ ნივთის გაცემა</option>
@@ -483,17 +358,18 @@ function issuePage(){
                   </option>`).join('')}
               </select>`:''}
             <div class="actions" style="margin-top:7px">
-              <button class="good bulk"
-                data-s="${s.id}" data-status="all_returned"
-                ${active.length?'':'disabled'}>ყველას დაბრუნება</button>
-              <button class="danger bulk"
-                data-s="${s.id}" data-status="all_lost"
-                ${active.length?'':'disabled'}>ყველა დაკარგულად</button>
+              <button class="good bulk" data-s="${s.id}"
+                data-status="all_returned" ${active.length?'':'disabled'}>
+                ყველას დაბრუნება
+              </button>
+              <button class="danger bulk" data-s="${s.id}"
+                data-status="all_lost" ${active.length?'':'disabled'}>
+                ყველა დაკარგულად
+              </button>
             </div>
-            ${ordered.length>4?`
-              <div class="small muted">
-                კიდევ ${ordered.length-4} ჩანაწერი — იხილე შეჯამება
-              </div>`:''}
+            ${ordered.length>4?`<div class="small muted">
+              კიდევ ${ordered.length-4} ჩანაწერი — იხილე შეჯამება
+            </div>`:''}
           </td>
         </tr>`;
       }).join('')||
@@ -515,24 +391,13 @@ function soldiersPage(){
       <input id="newSoldier" placeholder="სახელი და გვარი">
       <button id="addSoldier" class="primary">ჯარისკაცის დამატება</button>
       <input id="soldierSearch" class="search"
-        placeholder="🔎 ჯარისკაცის ძებნა"
-        value="${esc(soldierSearch)}">
-      <label>
-        <input type="checkbox" id="showRetired"
-          ${showRetired?'checked':''}>
-        გაშვებული ჯარისკაცები
-      </label>
+        placeholder="🔎 ჯარისკაცის ძებნა" value="${esc(soldierSearch)}">
+      <label><input type="checkbox" id="showRetired"
+        ${showRetired?'checked':''}> გაშვებული ჯარისკაცები</label>
     </div>
-    <p class="muted small">
-      გაშვება ისტორიას არ შლის. ხელახლა მიღებისას ძველი ჩანაწერი აღდგება.
-    </p>
     <div class="scroll"><table>
-      <thead><tr>
-        <th>სახელი და გვარი</th>
-        <th>სტატუსი</th>
-        <th>გაფრთხილება</th>
-        <th>მოქმედებები</th>
-      </tr></thead>
+      <thead><tr><th>სახელი და გვარი</th><th>სტატუსი</th>
+        <th>გაფრთხილება</th><th>მოქმედებები</th></tr></thead>
       <tbody>
       ${list.map(s=>`<tr>
         <td><b>${esc(s.name)}</b></td>
@@ -541,19 +406,81 @@ function soldiersPage(){
         </td>
         <td>${warningCount(s.id)} / 3</td>
         <td>
-          <button class="renameSoldier" data-id="${s.id}">
-            სახელის შეცვლა
-          </button>
-          ${s.active?`
-            <button class="danger retireSoldier" data-id="${s.id}">
-              გაშვება
-            </button>`:`
-            <button class="good restoreSoldier" data-id="${s.id}">
-              ხელახლა მიღება
-            </button>`}
+          <button class="renameSoldier" data-id="${s.id}">სახელის შეცვლა</button>
+          ${s.active?
+            `<button class="danger retireSoldier" data-id="${s.id}">გაშვება</button>`:
+            `<button class="good restoreSoldier" data-id="${s.id}">ხელახლა მიღება</button>`}
         </td>
       </tr>`).join('')||
         '<tr><td colspan="4">ჯარისკაცი არ მოიძებნა</td></tr>'}
+      </tbody>
+    </table></div>
+  </section>`;
+}
+
+function attendancePage(){
+  const list=soldiers.filter(s=>
+    s.active||attendance.some(a=>a.soldier_id===s.id)
+  ).filter(s=>s.name.toLocaleLowerCase().includes(
+    attendanceSearch.toLocaleLowerCase()
+  ));
+
+  const present=list.filter(s=>attendanceStatus(s.id)==='present').length;
+  const absent=list.filter(s=>attendanceStatus(s.id)==='absent').length;
+  const unset=list.length-present-absent;
+
+  return `<section class="panel">
+    <h2>აღრიცხვა — ჯარისკაცების დასწრება</h2>
+    ${dateToolbar()}
+    <div class="toolbar">
+      <input id="attendanceSearch" class="search"
+        placeholder="🔎 ჯარისკაცის ძებნა"
+        value="${esc(attendanceSearch)}">
+    </div>
+    <div class="stat">გამოცხადდა<strong>${present}</strong></div>
+    <div class="stat">არ გამოცხადდა<strong>${absent}</strong></div>
+    <div class="stat">არ არის არჩეული<strong>${unset}</strong></div>
+    <p class="small muted">
+      არჩევანი ავტომატურად ინახება. ახალი დღის ჩანაწერები
+      თავიდან შეუვსებელია. ძველი დღეები ინახება.
+    </p>
+    <div class="scroll"><table>
+      <thead><tr>
+        <th>ჯარისკაცი</th>
+        <th>დასწრების სტატუსი</th>
+        <th>ბოლო ცვლილება</th>
+      </tr></thead>
+      <tbody>
+      ${list.map(s=>{
+        const status=attendanceStatus(s.id);
+        const record=attendance.find(a=>
+          a.soldier_id===s.id&&a.day===selectedDay
+        );
+        return `<tr>
+          <td><b>${esc(s.name)}</b>
+            ${!s.active?'<span class="small muted">(გაშვებული)</span>':''}
+          </td>
+          <td class="${status==='present'?'att-present':
+            status==='absent'?'att-absent':''}">
+            <select class="setAttendance" data-s="${s.id}">
+              <option value="unset" ${status==='unset'?'selected':''}>
+                არ არის არჩეული
+              </option>
+              <option value="present" ${status==='present'?'selected':''}>
+                გამოცხადდა
+              </option>
+              <option value="absent" ${status==='absent'?'selected':''}>
+                არ გამოცხადდა
+              </option>
+            </select>
+          </td>
+          <td>
+            ${record?clock(record.updated_at):'—'}
+            <div class="small muted">${esc(record?.updated_by||'')}</div>
+          </td>
+        </tr>`;
+      }).join('')||
+        '<tr><td colspan="3">ჯარისკაცი არ მოიძებნა</td></tr>'}
       </tbody>
     </table></div>
   </section>`;
@@ -569,38 +496,25 @@ function warningsPage(){
     <h2>საყვედური</h2>
     <div class="toolbar">
       <input id="soldierSearch" class="search"
-        placeholder="🔎 ჯარისკაცის ძებნა"
-        value="${esc(soldierSearch)}">
-      <span class="muted small">
-        გაფრთხილებების რაოდენობა ინახება Supabase-ში
-      </span>
+        placeholder="🔎 ჯარისკაცის ძებნა" value="${esc(soldierSearch)}">
     </div>
     <div class="scroll"><table>
-      <thead><tr>
-        <th>ჯარისკაცი</th>
-        <th>გაფრთხილება</th>
-        <th>რაოდენობის შეცვლა</th>
-      </tr></thead>
+      <thead><tr><th>ჯარისკაცი</th><th>გაფრთხილება</th>
+        <th>შეცვლა</th></tr></thead>
       <tbody>
       ${list.map(s=>{
         const n=warningCount(s.id);
         return `<tr>
           <td><b>${esc(s.name)}</b></td>
-          <td>
-            <span class="warning w${n}">
-              ${n===0?'გაფრთხილება არ აქვს':
-                n===1?'ერთი გაფრთხილება':
-                n===2?'ორი გაფრთხილება':'სამი გაფრთხილება'}
-            </span>
-          </td>
-          <td>
-            <select class="setWarning" data-s="${s.id}">
-              ${[0,1,2,3].map(v=>`
-                <option value="${v}" ${n===v?'selected':''}>
-                  ${v} გაფრთხილება
-                </option>`).join('')}
-            </select>
-          </td>
+          <td><span class="warning w${n}">
+            ${n===0?'გაფრთხილება არ აქვს':
+              n===1?'ერთი გაფრთხილება':
+              n===2?'ორი გაფრთხილება':'სამი გაფრთხილება'}
+          </span></td>
+          <td><select class="setWarning" data-s="${s.id}">
+            ${[0,1,2,3].map(v=>`<option value="${v}"
+              ${n===v?'selected':''}>${v} გაფრთხილება</option>`).join('')}
+          </select></td>
         </tr>`;
       }).join('')||
         '<tr><td colspan="3">ჯარისკაცი არ მოიძებნა</td></tr>'}
@@ -611,15 +525,10 @@ function warningsPage(){
 
 function report(rows){
   return `<div class="scroll"><table>
-    <thead><tr>
-      <th>ჯარისკაცი</th>
-      <th>ნივთი</th>
-      <th>გაცემის დრო</th>
-      <th>გასცა</th>
-      <th>სტატუსი</th>
-      <th>განახლების დრო</th>
-      <th>მოქმედება</th>
-    </tr></thead>
+    <thead><tr><th>ჯარისკაცი</th><th>ნივთი</th>
+      <th>გაცემის დრო</th><th>გასცა</th>
+      <th>სტატუსი</th><th>განახლების დრო</th>
+      <th>მოქმედება</th></tr></thead>
     <tbody>
     ${rows.map(x=>`<tr>
       <td>${esc(soldierName(x.soldier_id))}</td>
@@ -632,11 +541,9 @@ function report(rows){
           x.status==='lost'?'დაიკარგა':'დაბრუნდა'}
       </td>
       <td>${clock(x.resolved_at)}</td>
-      <td>
-        <button class="cancelIssue" data-id="${x.id}">
-          ✕ გაუქმება
-        </button>
-      </td>
+      <td><button class="cancelIssue" data-id="${x.id}">
+        ✕ გაუქმება
+      </button></td>
     </tr>`).join('')||
       '<tr><td colspan="7">ჩანაწერები არ არის</td></tr>'}
     </tbody>
@@ -665,6 +572,7 @@ function summaryPage(){
   const lost=issues.filter(x=>
     x.resolved_day===selectedDay&&x.status==='lost'
   );
+
   return `<section class="panel">
     <h2>დღის შეჯამება</h2>
     ${dateToolbar()}
@@ -688,17 +596,16 @@ function summaryPage(){
 
 function render(){
   if($('#app').classList.contains('hidden'))return;
-
   $('#content').innerHTML=
     page==='stock'?stockPage():
     page==='issue'?issuePage():
     page==='soldiers'?soldiersPage():
+    page==='attendance'?attendancePage():
     page==='warnings'?warningsPage():
     page==='lost'?lostPage():summaryPage();
 
   document.querySelectorAll('nav [data-page]').forEach(b=>
     b.classList.toggle('active',b.dataset.page===page));
-
   tick();
 }
 
@@ -709,17 +616,18 @@ function tick(){
 setInterval(tick,1000);
 
 $('#content').addEventListener('input',e=>{
-  if(['soldierSearch','stockSearch'].includes(e.target.id)){
-    const id=e.target.id;
-    const pos=e.target.selectionStart;
-    if(id==='stockSearch')stockSearch=e.target.value;
-    else soldierSearch=e.target.value;
+  const id=e.target.id;
+  if(!['soldierSearch','stockSearch','attendanceSearch'].includes(id))return;
 
-    render();
-    const el=$('#'+id);
-    el?.focus();
-    el?.setSelectionRange(pos,pos);
-  }
+  const pos=e.target.selectionStart;
+  if(id==='stockSearch')stockSearch=e.target.value;
+  if(id==='soldierSearch')soldierSearch=e.target.value;
+  if(id==='attendanceSearch')attendanceSearch=e.target.value;
+
+  render();
+  const el=$('#'+id);
+  el?.focus();
+  el?.setSelectionRange(pos,pos);
 });
 
 $('#content').addEventListener('change',async e=>{
@@ -727,7 +635,7 @@ $('#content').addEventListener('change',async e=>{
 
   if(el.id==='day'){
     selectedDay=el.value;
-    render();
+    try{await reload()}catch(err){notice(err.message)}
   }else if(el.id==='showArchived'){
     showArchived=el.checked;
     render();
@@ -735,27 +643,30 @@ $('#content').addEventListener('change',async e=>{
     showRetired=el.checked;
     render();
   }else if(el.classList.contains('give')&&el.value){
-    const item=el.value;
-    const soldier=el.dataset.s;
+    const item=el.value,soldier=el.dataset.s;
     el.value='';
     await action('issue',{item,soldier,day:selectedDay});
   }else if(el.classList.contains('setWarning')){
     await action('set_warning',{
-      soldier:el.dataset.s,
-      count:Number(el.value)
+      soldier:el.dataset.s,count:Number(el.value)
     },'manage');
+  }else if(el.classList.contains('setAttendance')){
+    await action('attendance',{
+      soldier:el.dataset.s,
+      day:selectedDay,
+      status:el.value
+    },'attendance');
   }
 });
 
 $('#content').addEventListener('click',async e=>{
   const b=e.target.closest('button');
   if(!b||busy)return;
-
   const id=b.dataset.id;
 
   if(b.id==='today'){
     selectedDay=day();
-    render();
+    try{await reload()}catch(err){notice(err.message)}
 
   }else if(b.id==='addItem'){
     const name=$('#newItem').value.trim();
@@ -764,19 +675,17 @@ $('#content').addEventListener('click',async e=>{
 
   }else if(b.id==='addSoldier'){
     const name=$('#newSoldier').value.trim();
-    if(name.length>=2){
-      await action('add_soldier',{name},'manage');
-    }else{
-      notice('შეიყვანე სახელი და გვარი');
-    }
+    if(name.length>=2)await action('add_soldier',{name},'manage');
+    else notice('შეიყვანე სახელი და გვარი');
 
   }else if(b.classList.contains('addStock')){
     const qty=Number($('#q-'+id).value);
     if(Number.isInteger(qty)&&qty>0&&qty<=100000){
       await action('stock',{item:id,qty},'edit');
-    }else{
-      notice('შეიყვანე სწორი რაოდენობა');
-    }
+    }else notice('შეიყვანე სწორი რაოდენობა');
+
+  }else if(b.classList.contains('resetStock')){
+    await action('reset',{item:id},'reset');
 
   }else if(b.classList.contains('renameItem')){
     const old=itemName(id);
@@ -816,16 +725,17 @@ $('#content').addEventListener('click',async e=>{
 
   }else if(b.classList.contains('bulk')){
     await action(b.dataset.status,{
-      soldier:b.dataset.s,
-      day:selectedDay
+      soldier:b.dataset.s,day:selectedDay
     });
   }
 });
 
 document.querySelectorAll('nav [data-page]').forEach(b=>
-  b.addEventListener('click',()=>{
+  b.addEventListener('click',async()=>{
     page=b.dataset.page;
-    render();
+    if(['issue','attendance','lost','summary'].includes(page)){
+      try{await reload()}catch(e){notice(e.message)}
+    }else render();
   })
 );
 
@@ -836,15 +746,13 @@ $('#logout').onclick=async()=>{
 
 $('#loginForm').onsubmit=async e=>{
   e.preventDefault();
-
   if(!sb)return notice('config.js არ არის გამართული');
 
   const email=conf.LOGIN_EMAILS?.[$('#username').value];
   if(!email)return notice('მომხმარებელი config.js-ში არ არის');
 
   const {error}=await sb.auth.signInWithPassword({
-    email,
-    password:$('#password').value
+    email,password:$('#password').value
   });
 
   if(error)notice('შეცდომა: '+error.message);
@@ -853,7 +761,6 @@ $('#loginForm').onsubmit=async e=>{
 
 async function start(){
   if(!sb)return notice('Supabase არ არის დაკავშირებული');
-
   const {data:{session}}=await sb.auth.getSession();
   if(!session)return;
 
@@ -867,25 +774,15 @@ async function start(){
   $('#login').classList.add('hidden');
   $('#app').classList.remove('hidden');
 
-  try{
-    await reload();
-  }catch(e){
-    notice('ჩატვირთვის შეცდომა: '+e.message);
-  }
+  try{await reload()}
+  catch(e){notice('ჩატვირთვის შეცდომა: '+e.message)}
 }
 
 start();
 
 setInterval(async()=>{
   if(!$('#app').classList.contains('hidden')&&!busy&&!loading){
-    try{
-      if(selectedDay!==day()&&page==='issue'){
-        selectedDay=day();
-      }
-      await reload();
-    }catch(e){
-      console.warn(e);
-    }
+    try{await reload()}catch(e){console.warn(e)}
   }
 },30000);
 </script>
